@@ -17,7 +17,7 @@ form {
 form input:focus, button,
 input[type="submit"] {
   outline: 1px solid #f60;
-  background-color: #ff660010;
+  background-color: #ffeedd;
 }
 
 form input {
