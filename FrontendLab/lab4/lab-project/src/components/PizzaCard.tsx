@@ -4,15 +4,18 @@ import EditPizzaForm from "./EditPizzaForm";
 
 interface PizzaCardProps {
   pizza: Pizza;
-  updatePizza: (newPizza: Pizza) => void
+  updatePizza: (newPizza: Pizza) => void;
+  deletePizza: (id: number) => void;
 }
 
-const PizzaCard: FC<PizzaCardProps> = ({ pizza, updatePizza }) => {
-
-    const [edit, setEdit] = useState<boolean>(false);
-    const handleToggleEdit = () => {
-      setEdit(!edit)
-    }
+const PizzaCard: FC<PizzaCardProps> = ({ pizza, updatePizza, deletePizza }) => {
+  const [edit, setEdit] = useState<boolean>(false);
+  const handleToggleEdit = () => {
+    setEdit(!edit);
+  };
+  const handleDelete = () => {
+    deletePizza(pizza.id);
+  };
 
   return (
     <div className="pizza">
@@ -29,13 +32,18 @@ const PizzaCard: FC<PizzaCardProps> = ({ pizza, updatePizza }) => {
         <img
           src="https://cdn-icons-png.flaticon.com/512/6861/6861362.png"
           style={{ width: "30px", height: "30px" }}
-          onClick={handleToggleEdit}
+          onClick={handleDelete}
           alt={"edit icon"}
         ></img>
       </div>
 
-      {edit?<EditPizzaForm data={pizza} updatePizza={updatePizza} handleToggleEdit={handleToggleEdit}/>:null}
-
+      {edit ? (
+        <EditPizzaForm
+          data={pizza}
+          updatePizza={updatePizza}
+          handleToggleEdit={handleToggleEdit}
+        />
+      ) : null}
     </div>
   );
 };
