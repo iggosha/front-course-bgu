@@ -1,4 +1,5 @@
 import React, { FC, useState } from "react";
+import { Link } from "react-router-dom";
 import Pizza from "../models/Pizza";
 import EditPizzaForm from "./EditPizzaForm";
 
@@ -20,7 +21,9 @@ const PizzaCard: FC<PizzaCardProps> = ({ pizza, updatePizza, deletePizza }) => {
   return (
     <div className="pizza">
       <img src={pizza.img} alt={pizza.title}></img>
-      <h2>{pizza.title}</h2>
+      <h2>
+        <Link to={`/pizza/${pizza.id}`}> {pizza.title}</Link>
+      </h2>
       <span>{pizza.price}$</span>
       <div className="pizza-controls">
         <img
