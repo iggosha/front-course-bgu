@@ -14,13 +14,15 @@ form {
   flex-wrap: wrap;
   max-width: 720px;
 }
-form input:focus, button,
+form input:focus,
+button,
 input[type="submit"] {
   outline: 1px solid #f60;
   background-color: #ffeedd;
 }
 
-form input, input {
+form input,
+input {
   width: 100%;
   padding: 10px;
   line-height: 1;

@@ -1,6 +1,6 @@
 import React, { FC, useState } from "react";
 import { Link } from "react-router-dom";
-import Pizza from "../models/Pizza";
+import Pizza from "../../models/Pizza";
 import EditPizzaForm from "./EditPizzaForm";
 
 interface PizzaCardProps {

@@ -1,11 +1,9 @@
 import React, { ChangeEvent, FC, FormEvent, useState } from "react";
-import "./formstyles.css";
-import "./pizzastyles.css";
-import Pizza from "../models/Pizza";
+import Pizza from "../../models/Pizza";
 
 interface EditPizzaFormProps {
   data: Pizza;
-  updatePizza: (newPizza: Pizza) => void;
+  updatePizza?: (newPizza: Pizza) => void;
   handleToggleEdit: () => void;
 }
 
@@ -27,15 +25,13 @@ const EditPizzaForm: FC<EditPizzaFormProps> = ({
     e.preventDefault();
     const { title, price, img } = editPizza;
 
-    if (title && price && img) {
+    if (title && price && img && updatePizza) {
       updatePizza(editPizza);
       handleToggleEdit();
     }
   };
 
-  console.log("edit pizza", editPizza);
-
-  return (
+  const editForm = (
     <form onSubmit={handleSubmit} className="edit-form">
       <input
         name="title"
@@ -61,6 +57,8 @@ const EditPizzaForm: FC<EditPizzaFormProps> = ({
       <button type="submit">Сохранить изменения</button>
     </form>
   );
+
+  return editForm;
 };
 
 export default EditPizzaForm;

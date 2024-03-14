@@ -28,7 +28,12 @@ const SearchPizza: FC<SearchPizzaProps> = ({
       type="text"
       value={internalValue}
       placeholder={"Введите название пиццы для поиска"}
-      style={{ marginBottom: "30px", border: "1px solid #f60", padding: "15px", borderRadius: "10px" }}
+      style={{
+        marginBottom: "30px",
+        border: "1px solid #f60",
+        padding: "15px",
+        borderRadius: "10px",
+      }}
       onChange={(inputElement) => setInternalValue(inputElement.target.value)}
     />
   );

@@ -1,8 +1,8 @@
 import React, { FC, useEffect, useState } from "react";
 import AddPizzaForm from "../components/AddPizzaForm";
-import Pizza from "../models/Pizza";
 import DisplayPizzas from "../components/DisplayPizzas";
 import SearchPizza from "../components/SearchPizza";
+import Pizza from "../models/Pizza";
 
 const HomeFeature: FC = () => {
   const [pizzasList, setPizzasList] = useState<Pizza[]>([]);
