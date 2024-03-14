@@ -20,7 +20,7 @@ input[type="submit"] {
   background-color: #ffeedd;
 }
 
-form input {
+form input, input {
   width: 100%;
   padding: 10px;
   line-height: 1;

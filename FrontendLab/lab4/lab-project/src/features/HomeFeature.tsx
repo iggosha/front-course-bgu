@@ -2,17 +2,17 @@ import React, { FC, useEffect, useState } from "react";
 import AddPizzaForm from "../components/AddPizzaForm";
 import Pizza from "../models/Pizza";
 import DisplayPizzas from "../components/DisplayPizzas";
+import SearchPizza from "../components/SearchPizza";
 
 const HomeFeature: FC = () => {
   const [pizzasList, setPizzasList] = useState<Pizza[]>([]);
-
+  const [filterValue, setFilterValue] = useState<string>("");
   const addPizza = (newPizza: Pizza) => {
     const newPizzasList = [...pizzasList, newPizza];
 
     setPizzasList(newPizzasList);
     localStorage.setItem("pizzasState", JSON.stringify(newPizzasList));
   };
-
   const updatePizza = (newPizza: Pizza) => {
     const newPizzasList = pizzasList.map((pizza) =>
       pizza.id === newPizza.id ? newPizza : pizza
@@ -35,12 +35,18 @@ const HomeFeature: FC = () => {
   return (
     <div className="wrap">
       <span className="heading">ПиццаВайб</span>
-      <AddPizzaForm addPizza={addPizza}></AddPizzaForm>
+      <AddPizzaForm addPizza={addPizza} />
+      <SearchPizza
+        value={filterValue}
+        onChange={setFilterValue}
+        debounceTimeout={1000}
+      />
       <DisplayPizzas
+        filterValue={filterValue}
         pizzasList={pizzasList}
         updatePizza={updatePizza}
         deletePizza={deletePizza}
-      ></DisplayPizzas>
+      />
     </div>
   );
 };
