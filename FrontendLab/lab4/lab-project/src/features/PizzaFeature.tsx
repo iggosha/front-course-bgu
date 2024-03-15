@@ -1,6 +1,8 @@
 import React, { FC, useEffect, useState } from "react";
 import Pizza from "../models/Pizza";
 import { useParams } from "react-router-dom";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 const PizzaFeature: FC = () => {
   const [pizza, setPizza] = useState<Pizza | null>(null);
@@ -20,13 +22,14 @@ const PizzaFeature: FC = () => {
 
   return (
     <>
-      <span className="heading">ПиццаВайб</span>
+      <Header />
       <div className="pizza pizza-page">
         <img src={pizza?.img} alt={pizza?.title} />
         <h2>{pizza?.title}</h2>
         <span>{pizza?.price}$</span>
         <p>BEST</p>
       </div>
+      <Footer />
     </>
   );
 };

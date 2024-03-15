@@ -10,9 +10,9 @@ interface PizzaCardProps {
 }
 
 const PizzaCard: FC<PizzaCardProps> = ({ pizza, updatePizza, deletePizza }) => {
-  const [edit, setEdit] = useState<boolean>(false);
+  const [isEditing, setEditing] = useState<boolean>(false);
   const handleToggleEdit = () => {
-    setEdit(!edit);
+    setEditing(!isEditing);
   };
   const handleDelete = () => {
     deletePizza(pizza.id);
@@ -27,20 +27,22 @@ const PizzaCard: FC<PizzaCardProps> = ({ pizza, updatePizza, deletePizza }) => {
       <span>{pizza.price}$</span>
       <div className="pizza-controls">
         <img
-          src="https://cdn-icons-png.flaticon.com/512/5996/5996831.png"
+          src="https://cdn-icons-png.flaticon.com/128/6049/6049305.png"
           style={{ width: "30px", height: "30px" }}
           onClick={handleToggleEdit}
           alt={"edit icon"}
         ></img>
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/6861/6861362.png"
-          style={{ width: "30px", height: "30px" }}
-          onClick={handleDelete}
-          alt={"edit icon"}
-        ></img>
+        <Link to={`/`}>
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/6861/6861362.png"
+            style={{ width: "30px", height: "30px" }}
+            onClick={handleDelete}
+            alt={"delete icon"}
+          ></img>
+        </Link>
       </div>
 
-      {edit ? (
+      {isEditing ? (
         <EditPizzaForm
           data={pizza}
           updatePizza={updatePizza}

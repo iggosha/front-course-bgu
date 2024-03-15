@@ -3,6 +3,8 @@ import AddPizzaForm from "../components/AddPizzaForm";
 import DisplayPizzas from "../components/DisplayPizzas";
 import SearchPizza from "../components/SearchPizza";
 import Pizza from "../models/Pizza";
+import Footer from "../components/Footer";
+import Header from "../components/Header";
 
 const HomeFeature: FC = () => {
   const [pizzasList, setPizzasList] = useState<Pizza[]>([]);
@@ -34,7 +36,8 @@ const HomeFeature: FC = () => {
 
   return (
     <div className="wrap">
-      <span className="heading">ПиццаВайб</span>
+      <Header/>
+
       <AddPizzaForm addPizza={addPizza} />
       <SearchPizza
         value={filterValue}
@@ -47,6 +50,7 @@ const HomeFeature: FC = () => {
         updatePizza={updatePizza}
         deletePizza={deletePizza}
       />
+      <Footer/>
     </div>
   );
 };
