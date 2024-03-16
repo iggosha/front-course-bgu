@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useState } from "react";
 import AddPizzaForm from "../components/AddPizzaForm";
 import DisplayPizzas from "../components/DisplayPizzas";
-import SearchPizza from "../components/SearchPizza";
+import SearchPizza from "../components/internal/SearchPizza";
 import Pizza from "../models/Pizza";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
@@ -11,7 +11,6 @@ const HomeFeature: FC = () => {
   const [filterValue, setFilterValue] = useState<string>("");
   const addPizza = (newPizza: Pizza) => {
     const newPizzasList = [...pizzasList, newPizza];
-
     setPizzasList(newPizzasList);
     localStorage.setItem("pizzasState", JSON.stringify(newPizzasList));
   };
@@ -33,24 +32,28 @@ const HomeFeature: FC = () => {
       setPizzasList(JSON.parse(pizzasState));
     }
   }, []);
-
-  return (
-    <div className="wrap">
-      <Header/>
-
-      <AddPizzaForm addPizza={addPizza} />
+  const searchPizzaObj = () => {
+    return (
       <SearchPizza
         value={filterValue}
         onChange={setFilterValue}
         debounceTimeout={1000}
       />
+    );
+  };
+
+  return (
+    <div className="wrap">
+      <Header searchPizza={searchPizzaObj()} />
+      <div style={{marginTop: "100px"}}></div>
+      <AddPizzaForm addPizza={addPizza} />
       <DisplayPizzas
         filterValue={filterValue}
         pizzasList={pizzasList}
         updatePizza={updatePizza}
         deletePizza={deletePizza}
       />
-      <Footer/>
+      <Footer />
     </div>
   );
 };

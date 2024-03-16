@@ -10,13 +10,18 @@ footer {
   font-size: 20px;
 }
 
+header a {
+  text-decoration: none;
+}
+
 header {
-    margin-bottom: 10px;
-    margin-top: 10px;
+  position: fixed;
+  top: 0;
+  z-index: 2;
 }
 
 body {
-    background-color: #eee;
+  background-color: #eee;
 }
 
 .header-container {
@@ -27,4 +32,5 @@ body {
 
 .logo {
   height: 50px;
+  margin-left: 500px;
 }

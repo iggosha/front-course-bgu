@@ -14,7 +14,6 @@ const PizzaFeature: FC = () => {
     if (pizzasState && id) {
       const pizzasList = JSON.parse(pizzasState);
       const idNumber = parseInt(id);
-
       const currentPizza = pizzasList.find((p: Pizza) => p.id === idNumber);
       setPizza(currentPizza);
     }
@@ -23,11 +22,14 @@ const PizzaFeature: FC = () => {
   return (
     <>
       <Header />
+      <div style={{marginTop: "100px"}}></div>
+
       <div className="pizza pizza-page">
         <img src={pizza?.img} alt={pizza?.title} />
         <h2>{pizza?.title}</h2>
         <span>{pizza?.price}$</span>
-        <p>BEST</p>
+        <p>{pizza?.description}</p>
+        <p>Эту пиццу купили уже {(Date.now() / 1000).toFixed(0)} раз</p>
       </div>
       <Footer />
     </>

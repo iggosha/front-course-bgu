@@ -54,6 +54,13 @@ const EditPizzaForm: FC<EditPizzaFormProps> = ({
         onChange={handleChange}
         value={editPizza.img}
       />
+      <input
+        name="description"
+        type="text"
+        placeholder="Описание пиццы"
+        onChange={handleChange}
+        value={editPizza.description}
+      />
       <button type="submit">Сохранить изменения</button>
     </form>
   );

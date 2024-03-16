@@ -9,6 +9,7 @@ const initState = {
   title: "",
   price: "",
   img: "",
+  description: ""
 };
 
 const AddPizzaForm: FC<AddPizzaFormProps> = ({ addPizza }) => {
@@ -16,6 +17,7 @@ const AddPizzaForm: FC<AddPizzaFormProps> = ({ addPizza }) => {
     title: string;
     price: string;
     img: string;
+    description: string
   }>(initState);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -27,7 +29,7 @@ const AddPizzaForm: FC<AddPizzaFormProps> = ({ addPizza }) => {
   };
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const { title, price, img } = newPizza;
+    const { title, price, img, description } = newPizza;
 
     if (title && price && img) {
       addPizza({
@@ -35,6 +37,7 @@ const AddPizzaForm: FC<AddPizzaFormProps> = ({ addPizza }) => {
         title,
         price: Number(price),
         img,
+        description
       });
       setNewPizza(initState);
     }
@@ -62,6 +65,13 @@ const AddPizzaForm: FC<AddPizzaFormProps> = ({ addPizza }) => {
         placeholder="Название файла изображения"
         onChange={handleChange}
         value={newPizza.img}
+      />
+      <input
+        name="description"
+        type="text"
+        placeholder="Описание товара"
+        onChange={handleChange}
+        value={newPizza.description}
       />
       <button type="submit">Добавить в меню</button>
     </form>

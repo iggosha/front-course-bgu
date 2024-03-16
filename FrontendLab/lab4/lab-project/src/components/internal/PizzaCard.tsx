@@ -26,19 +26,33 @@ const PizzaCard: FC<PizzaCardProps> = ({ pizza, updatePizza, deletePizza }) => {
       </h2>
       <span>{pizza.price}$</span>
       <div className="pizza-controls">
-        <img
-          src="https://cdn-icons-png.flaticon.com/128/6049/6049305.png"
-          style={{ width: "30px", height: "30px" }}
+        <button
           onClick={handleToggleEdit}
-          alt={"edit icon"}
-        ></img>
-        <Link to={`/`}>
+          style={{ padding: 0, backgroundColor: "white", borderRadius: 0 }}
+        >
           <img
-            src="https://cdn-icons-png.flaticon.com/512/6861/6861362.png"
-            style={{ width: "30px", height: "30px" }}
-            onClick={handleDelete}
-            alt={"delete icon"}
+            src="https://cdn-icons-png.flaticon.com/128/6049/6049305.png"
+            style={{
+              width: "30px",
+              height: "30px",
+            }}
+            alt={"edit icon"}
           ></img>
+        </button>
+        <Link to={`/`}>
+          <button
+            onClick={handleDelete}
+            style={{ padding: 0, backgroundColor: "white", borderRadius: 0 }}
+          >
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/6861/6861362.png"
+              style={{
+                width: "30px",
+                height: "30px",
+              }}
+              alt={"delete icon"}
+            ></img>
+          </button>
         </Link>
       </div>
 
