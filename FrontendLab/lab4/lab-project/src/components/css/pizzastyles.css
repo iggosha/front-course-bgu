@@ -1,0 +1,66 @@
+.pizza {
+  background: white;
+  border: 1px solid #eee;
+  box-shadow: 0 12px 24px 0 rgba(0, 0, 0, 0.2);
+  position: relative;
+  display: flex;
+  padding: 20px;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.pizza img {
+  width: 250px;
+  height: 200px;
+  object-fit: contain;
+}
+
+.pizza span {
+  background: #f60;
+  color: white;
+  font-weight: 600;
+  padding: 5px;
+  line-height: 1;
+  font-size: 27px;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.pizza .pizza-controls {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+}
+
+.pizza a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.pizza h2 {
+  margin: 0 40px;
+  text-align: center;
+  background: #f60;
+  display: inline;
+  font-size: 27px;
+  color: white;
+}
+
+.pizza-page img {
+  width: 420px;
+  height: 100%;
+  object-fit: contain;
+}
+.pizza-page h2 {
+  font-size: 52px;
+}
+.pizza-page p {
+  font-size: 18px;
+  text-align: center;
+}
+.pizza-page span {
+  font-size: 40px;
+  transform: rotate(15deg);
+}

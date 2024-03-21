@@ -1,0 +1,36 @@
+header,
+footer {
+  background-color: white;
+  color: #f60;
+  text-align: center;
+  padding: 10px;
+  width: 80vw;
+  border: 1px solid #f60;
+  border-radius: 10px;
+  font-size: 20px;
+}
+
+header a {
+  text-decoration: none;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  z-index: 2;
+}
+
+body {
+  background-color: #eee;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.logo {
+  height: 50px;
+  margin-left: 500px;
+}
